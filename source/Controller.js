@@ -8,6 +8,7 @@ function Controller() {
 	
 	this.$pageHook = this.findPageHook();	
 	this.view.produceGUI(this.$pageHook);
+	this.attachHandlers();
 };
 
 Controller.prototype = {
@@ -15,7 +16,11 @@ Controller.prototype = {
 		return $("#textEditor");
 	},
 	
+	attachHandlers: function() {
+		$("#submit").click(this.submitPost);
+	},
+	
 	submitPost: function() {
 		console.log("post submitted");
-	}
+	},
 };

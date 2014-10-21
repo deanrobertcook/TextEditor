@@ -44,7 +44,7 @@ View.prototype = {
 		var id = "submit";
 		this.fieldHooks.push("#content");
 		var html = [
-				'<input id="'+id+'" name="'+id+'" type="button" onclick="controller.submitPost()" value="Submit Data">',
+				'<input id="'+id+'" name="'+id+'" type="button" value="Submit Data">',
 		].join('\n');
 		return html;
 	}
