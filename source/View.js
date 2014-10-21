@@ -7,6 +7,7 @@ View.prototype = {
 		$pageHook.append(this.produceInputTextField("title", "Title: "));
 		$pageHook.append(this.produceInputTextField("author", "Author: "));
 		$pageHook.append(this.produceTextArea());
+		$pageHook.append(this.produceToolBar());
 		$pageHook.append(this.produceIFrame());
 		$pageHook.append(this.produceSubmitButton());
 	},
@@ -25,12 +26,22 @@ View.prototype = {
 		return html;
 	},
 	
+	produceToolBar: function() {
+		var html = [
+			'<div>',
+				'<button id="orderedListButton">OL</button>',
+				'<button id="unorderedListButton">UL</button>',
+				'<button id="createLinkButton">Link</button>',
+			'</div>'
+		].join('\n'); 
+		return html;
+	},
+	
 	produceTextArea: function(value) {
 		value = value || "";
 		var id = "plainTextContent";
 		this.fieldHooks.push("#" + id);
-		return	"<textarea id='"+id+"' name='"+id+"' style='display: none'>" +
-					"<p>Everything contained within this div is editable in browsers that support <code>HTML5</code>. Go on, give it a try: click it and start typing.</p>" +
+		return	"<textarea id='"+id+"' name='"+id+"' style='width: 700px; height: 300px;'>" +
 				"</textarea>";
 	},
 	
@@ -44,7 +55,7 @@ View.prototype = {
 		var id = "submit";
 		this.fieldHooks.push("#content");
 		var html = [
-				'<input id="'+id+'" name="'+id+'" type="button" value="Submit Data">',
+				'<input id="'+id+'" name="'+id+'" type="button" value="Submit Data">'
 		].join('\n');
 		return html;
 	}
