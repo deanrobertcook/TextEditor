@@ -1,0 +1,63 @@
+@CHARSET "ISO-8859-1";
+/* Don't forget to set a foreground and background color 
+   on the 'html' or 'body' element! */
+html, body, div, span,
+applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dd, dl, dt, li, ol, ul,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  line-height: 1;
+  font-family: inherit;
+  text-align: left;
+  vertical-align: baseline; }
+
+a img, :link img, :visited img {
+  border: 0; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+ol, ul {
+  list-style: none;
+  text-decoration: none; }
+
+:active, :hover, :visited, :link {
+  text-decoration: none; }
+
+#leftColumn, #rightColumn {
+  display: block;
+  float: left;
+  padding: 20px; }
+
+#leftColumn {
+  width: 1040px; }
+
+#rightColumn {
+  width: 300px;
+  height: 150px; }
+
+#mainTextArea {
+  width: 100%;
+  max-width: 100%;
+  min-height: 200px; }
+
+#testArea {
+  display: block;
+  border: 1px solid black;
+  padding: 20px;
+  text-align: justify;
+  font-family: Calibri, sans-serif;
+  line-height: 150%; }
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,33 @@
+@CHARSET "ISO-8859-1";
+@import 'reset';
+
+#leftColumn, #rightColumn {
+	display: block;
+	float: left;
+	padding: 20px;
+}
+
+#leftColumn {
+	width: 1040px;
+}
+
+#rightColumn {
+	width: 300px;
+	height: 150px;
+}
+
+#mainTextArea {
+	width: 100%;
+	max-width: 100%;
+	min-height: 200px;
+}
+
+#testArea {
+	display: block;
+	border: 1px solid black;
+	padding: 20px;
+	text-align: justify;
+	
+	font-family: Calibri, sans-serif; 
+	line-height: 150%;
+}
