@@ -1,33 +1,54 @@
 @CHARSET "ISO-8859-1";
 @import 'reset';
 
-#leftColumn, #rightColumn {
-	display: block;
-	float: left;
-	padding: 20px;
-}
+#textEditor {
+	overflow: hidden;
+	#postInfo {
+		overflow: hidden;
+		padding: 1%;
+		#postInfoLeft, #postInfoRight {
+			width: 48%;
+			display: block;
+			float: left;
+			label {
+				display: block;
+				float: left;
+				width: 16%;
+			}
+			input {
+				display: block;
+			}
+		}
+	}
 
-#leftColumn {
-	width: 1040px;
-}
+	#plainEditColumn, #richEditColumn {
+		width: 49%;
+		display: block;
+		float: left;
+		padding: 0.5%
+	}
 
-#rightColumn {
-	width: 300px;
-	height: 150px;
-}
+	#plainTextArea, #richTextArea {
+		width: 100%;
+		height: 70%;
+	}
 
-#mainTextArea {
-	width: 100%;
-	max-width: 100%;
-	min-height: 200px;
-}
+	#richEditColumn {
+		#richTextArea {
+			border: 1px solid black;
+		}
+	}
 
-#testArea {
-	display: block;
-	border: 1px solid black;
-	padding: 20px;
-	text-align: justify;
-	
-	font-family: Calibri, sans-serif; 
-	line-height: 150%;
+	#plainEditColumn {
+		#plainTextArea {
+			resize: none;
+			padding: 8px;
+		}
+	}
+
+	#footer {
+		display: block;
+		float: left;
+		padding: 1%;
+	}
 }

@@ -35,29 +35,37 @@ ol, ul {
 :active, :hover, :visited, :link {
   text-decoration: none; }
 
-#leftColumn, #rightColumn {
-  display: block;
-  float: left;
-  padding: 20px; }
-
-#leftColumn {
-  width: 1040px; }
-
-#rightColumn {
-  width: 300px;
-  height: 150px; }
-
-#mainTextArea {
-  width: 100%;
-  max-width: 100%;
-  min-height: 200px; }
-
-#testArea {
-  display: block;
-  border: 1px solid black;
-  padding: 20px;
-  text-align: justify;
-  font-family: Calibri, sans-serif;
-  line-height: 150%; }
+#textEditor {
+  overflow: hidden; }
+  #textEditor #postInfo {
+    overflow: hidden;
+    padding: 1%; }
+    #textEditor #postInfo #postInfoLeft, #textEditor #postInfo #postInfoRight {
+      width: 48%;
+      display: block;
+      float: left; }
+      #textEditor #postInfo #postInfoLeft label, #textEditor #postInfo #postInfoRight label {
+        display: block;
+        float: left;
+        width: 16%; }
+      #textEditor #postInfo #postInfoLeft input, #textEditor #postInfo #postInfoRight input {
+        display: block; }
+  #textEditor #plainEditColumn, #textEditor #richEditColumn {
+    width: 49%;
+    display: block;
+    float: left;
+    padding: 0.5%; }
+  #textEditor #plainTextArea, #textEditor #richTextArea {
+    width: 100%;
+    height: 70%; }
+  #textEditor #richEditColumn #richTextArea {
+    border: 1px solid black; }
+  #textEditor #plainEditColumn #plainTextArea {
+    resize: none;
+    padding: 8px; }
+  #textEditor #footer {
+    display: block;
+    float: left;
+    padding: 1%; }
 
 /*# sourceMappingURL=style.css.map */

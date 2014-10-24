@@ -10,12 +10,14 @@ function Controller() {
 	this.view.producePostInformationTextField("Author", {"id": "author", "name": "author", "value": "the Ronin"});
 	this.view.producePostInformationTextField("Date", {"id": "title", "name": "title", "value": "test"});
 	
-	//add toolbar buttons
-	this.view.produceToolbarButton("OL", this.orderedList.bind(this));
-	this.view.produceToolbarButton("UL", this.unorderedList.bind(this));
-	this.view.produceToolbarButton("Link", this.createLink.bind(this));
-	this.view.produceToolbarButton("TidyHTML", this.updatePlainTextArea.bind(this));
-	this.view.produceToolbarButton("Submit", this.submitPost.bind(this));
+	//add plain toolbar buttons
+	this.view.produceToolbarButton("plain", "TidyHTML", this.updatePlainTextArea.bind(this));
+	
+	//add rich toolbar buttons
+	this.view.produceToolbarButton("rich", "OL", this.orderedList.bind(this));
+	this.view.produceToolbarButton("rich", "UL", this.unorderedList.bind(this));
+	this.view.produceToolbarButton("rich", "Link", this.createLink.bind(this));
+	this.view.produceToolbarButton("rich", "Submit", this.submitPost.bind(this));
 	
 	this.view.assembleGUI();
 	

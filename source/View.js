@@ -1,23 +1,50 @@
 function View() {
-	this.postInformationDiv = this.produceSimpleDiv("postInfo");
+	this.postInfoFields = [];
 	this.plainTextArea = this.producePlainTextArea();
-	this.toolBar = this.produceSimpleDiv("toolBar");
+	this.plainToolBar = this.produceSimpleDiv("plainToolBar");
+	this.richToolBar = this.produceSimpleDiv("richToolBar");
 	this.richTextArea = this.produceRichTextArea();
 };
 
 View.prototype = {
 	assembleGUI: function() {
 		var mainDiv = $("#textEditor");
-		mainDiv.append(this.postInformationDiv);
-		mainDiv.append(this.plainTextArea);
-		mainDiv.append(this.toolBar);
-		mainDiv.append(this.richTextArea);
+		mainDiv.append(this.producePostInfoDiv());
+		
+		var plainEditColumn = $("<div id='plainEditColumn'></div>");
+		plainEditColumn.append(this.plainToolBar);
+		plainEditColumn.append(this.plainTextArea);
+		mainDiv.append(plainEditColumn);
+		
+		var richEditColumn = $("<div id='richEditColumn'></div>");
+		richEditColumn.append(this.richToolBar);
+		richEditColumn.append(this.richTextArea);
+		mainDiv.append(richEditColumn);
+		
+		
 		mainDiv.append(this.produceFooter());
 	},
 	
 	produceSimpleDiv: function(id) {
 		var divElement = $("<div id='"+id+"'></div>");
 		return divElement;
+	},
+	
+	producePostInfoDiv: function() {
+		var fields = this.postInfoFields;
+		var leftColumn = this.produceSimpleDiv("postInfoLeft");
+		var rightColumn = this.produceSimpleDiv("postInfoRight");
+		for (var i = 0; i < fields.length; i ++) {
+			if (i < fields.length/2) {
+				leftColumn.append(fields[i]);
+			} else {
+				rightColumn.append(fields[i]);
+			}
+		}
+		var postInfoDiv = this.produceSimpleDiv("postInfo");
+		postInfoDiv.append(leftColumn);
+		postInfoDiv.append(rightColumn);
+		return postInfoDiv;
 	},
 	
 	producePostInformationTextField: function(label, inputAttributes) {
@@ -28,29 +55,29 @@ View.prototype = {
 		
 		divElement.append(labelElement);
 		divElement.append(inputElement);
-		this.postInformationDiv.append(divElement);
+		this.postInfoFields.push(divElement);
+	},
+	
+	produceToolbarButton: function(toolbar, label, handler) {
+		var button = $("<button>"+label+"</button>");
+		button.click(handler);
+		$(this[toolbar+"ToolBar"]).append(button);
 	},
 	
 	producePlainTextArea: function(value) {
-		var textAreaElement = $("<textarea id='plainTextArea' name='plainTextArea' style='width: 700px; height: 300px;'></textarea>");
+		var textAreaElement = $("<textarea id='plainTextArea' name='plainTextArea'></textarea>");
 		return textAreaElement;
 	},
 	
-	produceToolbarButton: function(label, handler) {
-		var button = $("<button>"+label+"</button>");
-		button.click(handler);
-		$(this.toolBar).append(button);
-	},
-	
 	produceRichTextArea: function() {
-		var iFrameElement = $("<iframe id='richTextContent' style='border: 1px solid black; width: 700px; height: 300px;'></iframe>");
+		var iFrameElement = $("<iframe id='richTextArea'></iframe>");
 		return iFrameElement;
 	},
 	
 	produceFooter: function() {
-		var paragraph = $("<p>Thanks to Nochum Sossonko and the JS Beautifier team for the html beautifier. <br>\n\
+		var paragraph = $("<div id='footer'><p>Thanks to Nochum Sossonko and the JS Beautifier team for the html beautifier. <br>\n\
 							The source code for that is available <a href='https://github.com/beautify-web/js-beautify'>here</a><br>\n\
-							(double thanks, for teaching me some new Javscript syntax!)</p>");
+							(double thanks, for teaching me some new Javscript syntax!)</p></div>");
 		return paragraph;
 	}
 };
