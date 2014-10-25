@@ -77,7 +77,7 @@ View.prototype = {
 	produceFooter: function() {
 		var paragraph = $("<div id='footer'><p>Thanks to Nochum Sossonko and the JS Beautifier team for the html beautifier. <br>\n\
 							The source code for that is available <a href='https://github.com/beautify-web/js-beautify'>here</a><br>\n\
-							(double thanks, for teaching me some new Javscript syntax!)</p></div>");
+							(double thanks, for teaching me some new Javscript syntax! - the IIFE)</p></div>");
 		return paragraph;
 	}
 };
