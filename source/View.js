@@ -4,6 +4,7 @@ function View() {
 	this.plainToolBar = this.produceSimpleDiv("plainToolBar");
 	this.richToolBar = this.produceSimpleDiv("richToolBar");
 	this.richTextArea = this.produceRichTextArea();
+	this.newWordsArea = this.produceSimpleDiv("newWordsArea");
 };
 
 View.prototype = {
@@ -21,6 +22,7 @@ View.prototype = {
 		richEditColumn.append(this.richTextArea);
 		mainDiv.append(richEditColumn);
 		
+		mainDiv.append(this.newWordsArea);
 		
 		mainDiv.append(this.produceFooter());
 	},
@@ -79,5 +81,12 @@ View.prototype = {
 							The source code for that is available <a href='https://github.com/beautify-web/js-beautify'>here</a><br>\n\
 							(double thanks, for teaching me some new Javscript syntax! - the IIFE)</p></div>");
 		return paragraph;
-	}
+	},
+	
+	appendNewWords: function(wordsList) {
+		this.newWordsArea.empty();
+		$(wordsList).each(function(index, word) {
+			this.newWordsArea.append(word);
+		}.bind(this));
+	},	
 };

@@ -39,4 +39,4 @@ var Car = (function () {
 
 var myCar = new Car();
 myCar.newColor("green");
-console.log(myCar);
+//console.log(myCar);
